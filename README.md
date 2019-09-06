@@ -9,6 +9,15 @@ This project contains source code and supporting files for a serverless applicat
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
 
+## Verifying email addresses
+The first step is to verify any email addresses that emails are going to be sent to.
+
+To send a verfication email to any email address run `python verify_email.py`. Enter email address when prompted. 
+
+[Verifying an Email Address by AWS](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html)
+
+AWS will not send any emails to an unverfied email address
+
 ## Deploy the application
 
 The Serverless Application Model Command Line Interface (SAM CLI) is an extension of the AWS CLI that adds functionality for building and testing Lambda applications. It uses Docker to run your functions in an Amazon Linux environment that matches Lambda. It can also emulate your application's build environment and API.
