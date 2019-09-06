@@ -48,10 +48,7 @@ sam deploy \
 After deployment is complete you can run the following command to retrieve the API Gateway Endpoint URL:
 
 ```bash
-aws cloudformation describe-stacks \
-    --stack-name sendEmailStack \
-    --query 'Stacks[].Outputs[?OutputKey==`SendEmailApi`]' \
-    --output table
+./get_invocation_url.sh
 ``` 
 
 ## Use the SAM CLI to build and test locally
