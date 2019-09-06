@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'sam-app
+
+  Sample SAM Template for sam-app
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  SendEmailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://random-1213e23/83456106d0f359a716229148d401bfc7
+      Handler: app.lambda_handler
+      Runtime: python3.6
+      Events:
+        SendEmail:
+          Type: Api
+          Properties:
+            Path: /sendEmail
+            Method: get
+Outputs:
+  SendEmailApi:
+    Description: API Gateway endpoint URL for Prod stage for Send email function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sendEmail/
+  SendEmailFunction:
+    Description: Send Email Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - SendEmailFunction
+      - Arn
+  SendEmailFunctionIamRole:
+    Description: Implicit IAM Role created for Send Email function
+    Value:
+      Fn::GetAtt:
+      - SendEmailFunction
+      - Arn
