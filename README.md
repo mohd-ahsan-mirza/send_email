@@ -20,7 +20,7 @@ To use the SAM CLI, you need the following tools.
 * [Python 3 installed](https://www.python.org/downloads/)
 * Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 
-The SAM CLI uses an Amazon S3 bucket to store your application's deployment artifacts. If you don't have a bucket suitable for this purpose, create one. Replace `BUCKET_NAME` in the commands in this section with a unique bucket name.
+The SAM CLI uses an Amazon S3 bucket to store your application's deployment artifacts. If you don't have a bucket suitable for this purpose, create one. Enter a unique bucket name when prompted.
 
 ```bash
 ./make_s3_bucket.sh
@@ -45,7 +45,7 @@ sam deploy \
     --capabilities CAPABILITY_IAM
 ```
 
-After deployment is complete you can run the following command to retrieve the API Gateway Endpoint URL:
+After deployment is complete you can run the following bash_script to retrieve the API Gateway Endpoint URL:
 
 ```bash
 ./get_invocation_url.sh
