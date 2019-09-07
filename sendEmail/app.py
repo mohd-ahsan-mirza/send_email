@@ -1,7 +1,38 @@
 import json
+import boto3
 
 # import requests
 
+def send_email(subject,message,source_email,destination_email):
+    response = SES.send_email(
+        Destination={
+            'BccAddresses': [
+            ],
+            'CcAddresses': [
+                source_email,
+            ],
+            'ToAddresses': [
+                destination_email,
+            ],
+        },
+        Message={
+            'Body': {
+                'Html': {
+                    'Charset': CHARSET,
+                    'Data': '<html><head></head><body>'+message+'</body></html>',
+                },
+                'Text': {
+                    'Charset': CHARSET,
+                    'Data': message,
+                },
+            },
+            'Subject': {
+                'Charset': CHARSET,
+                'Data': subject,
+            },
+        },
+        Source=source_email
+    )
 
 def lambda_handler(event, context):
     """
@@ -32,10 +63,13 @@ def lambda_handler(event, context):
 
     #     raise e
 
+    response = 'ok'
+    try:
+        query = event['queryStringParameters']
+        send_email(query['subject'],query['message'],query['toEmail'],query['fromEmail'])
+    except as e:
+        response = e
     return {
         "statusCode": 200,
-        "body": json.dumps({
-            "message": "hello world",
-            # "location": ip.text.replace("\n", "")
-        }),
+        "body": json.dumps(response),
     }

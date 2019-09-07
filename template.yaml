@@ -9,7 +9,12 @@ Description: >
 Globals:
   Function:
     Timeout: 3
-
+Parameters:
+  charsetparam:
+    Type: String
+    Default: 'UTF-8'
+    AllowedValues:
+      - 'UTF-8'
 Resources:
   SendEmailFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -17,6 +22,11 @@ Resources:
       CodeUri: sendEmail/
       Handler: app.lambda_handler
       Runtime: python3.6
+      Policies:
+        - AmazonSESFullAccess
+      Environment:
+        Variables:
+          CHARSET: !Ref charsetparam
       Events:
         SendEmail:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
