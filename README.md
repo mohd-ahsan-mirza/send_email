@@ -59,6 +59,10 @@ After deployment is complete you can run the following bash_script to retrieve t
 ```bash
 ./get_invocation_url.sh
 ``` 
+Use the following command as template to make curl calls to your lambda function
+```
+curl "https://{API GATEWAY ID}.execute-api.us-east-1.amazonaws.com/Prod/sendEmail?fromEmail='{Verified email }'&toEmail='{Verified email }'&subject='Subject is working'&message='This is a message'"
+```
 
 ## Use the SAM CLI to build and test locally
 
