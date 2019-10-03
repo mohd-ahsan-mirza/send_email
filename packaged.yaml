@@ -18,7 +18,7 @@ Resources:
   SendEmailFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://random-1223434/afdb0f25c3fafad6477d772c57d50f3c
+      CodeUri: s3://random-124334/8c20a886e26b0c8723a81513273c7ff8
       Handler: app.lambda_handler
       Runtime: python3.6
       Policies:

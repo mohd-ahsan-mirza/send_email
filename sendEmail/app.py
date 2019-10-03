@@ -1,9 +1,11 @@
 import json
 import boto3
+import os
 
-# import requests
+CHARSET = os.environ['CHARSET']
 
 def send_email(subject,message,source_email,destination_email):
+    SES = boto3.client('ses')
     response = SES.send_email(
         Destination={
             'BccAddresses': [
@@ -64,11 +66,8 @@ def lambda_handler(event, context):
     #     raise e
 
     response = 'ok'
-    try:
-        query = event['queryStringParameters']
-        send_email(query['subject'],query['message'],query['toEmail'],query['fromEmail'])
-    except as e:
-        response = e
+    query = event['queryStringParameters']
+    send_email(query['subject'],query['message'],query['toEmail'],query['fromEmail'])
     return {
         "statusCode": 200,
         "body": json.dumps(response),
