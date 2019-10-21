@@ -18,7 +18,7 @@ Resources:
   SendEmailFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://random-124334/8c20a886e26b0c8723a81513273c7ff8
+      CodeUri: s3://random-121232/dba51440cb8adb3b8621492f5110e755
       Handler: app.lambda_handler
       Runtime: python3.6
       Policies:
@@ -32,7 +32,7 @@ Resources:
           Type: Api
           Properties:
             Path: /sendEmail
-            Method: get
+            Method: post
 Outputs:
   SendEmailApi:
     Description: API Gateway endpoint URL for Prod stage for Send email function
