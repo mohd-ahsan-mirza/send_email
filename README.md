@@ -60,6 +60,8 @@ sam deploy \
 
 After deployment is complete you can run `./get_invocation_url.sh` to retrieve the API Gateway Endpoint URL
 
+## Sending an email
+
 Run `./send_email.sh` to send an email
 
 ## Use the SAM CLI to build and test locally
