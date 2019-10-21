@@ -12,7 +12,9 @@ The application uses several AWS resources, including Lambda functions and an AP
 ## Verifying email addresses
 The first step is to verify any email addresses that emails are going to be sent to.
 
-To send a verfication email to any email address run `python verify_email.py`. Enter email address when prompted. 
+To send a verfication email to any email address run 
+```python verify_email.py```
+Enter email address when prompted. 
 
 [Verifying an Email Address by AWS](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html)
 
@@ -59,10 +61,8 @@ After deployment is complete you can run the following bash_script to retrieve t
 ```bash
 ./get_invocation_url.sh
 ``` 
-Use the following command as template to make curl calls to your lambda function
-```
-curl  --request GET "https://{API GATEWAY ID}.execute-api.us-east-1.amazonaws.com/Prod/sendEmail?fromEmail={Verified Email}&toEmail={Verified Email}&subject='Subject'&message='Message'"
-```
+
+Run `./send_email.sh` to send an email
 
 ## Use the SAM CLI to build and test locally
 
