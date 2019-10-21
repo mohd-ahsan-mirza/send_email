@@ -13,7 +13,9 @@ The application uses several AWS resources, including Lambda functions and an AP
 The first step is to verify any email addresses that emails are going to be sent to.
 
 To send a verfication email to any email address run 
-```python verify_email.py```
+```
+python verify_email.py
+```
 Enter email address when prompted. 
 
 [Verifying an Email Address by AWS](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses-procedure.html)
