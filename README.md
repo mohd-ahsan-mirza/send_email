@@ -58,11 +58,7 @@ sam deploy \
     --capabilities CAPABILITY_IAM
 ```
 
-After deployment is complete you can run the following bash_script to retrieve the API Gateway Endpoint URL:
-
-```bash
-./get_invocation_url.sh
-``` 
+After deployment is complete you can run `./get_invocation_url.sh` to retrieve the API Gateway Endpoint URL
 
 Run `./send_email.sh` to send an email
 
